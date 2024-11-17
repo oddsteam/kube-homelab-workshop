@@ -1,0 +1,5 @@
+write-kubeconfig-mode: "0644"
+tls-san:
+  - 100.64.122.36
+disable:
+  - rke2-ingress-nginx

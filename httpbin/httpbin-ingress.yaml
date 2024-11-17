@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: httpbin-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"  
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cloudflare-proxied: "true"
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+    external-dns.alpha.kubernetes.io/hostname: workshop20.odt-workshop.site
+    external-dns.alpha.kubernetes.io/target: 5ef64657-57dd-4e7b-9bd7-02303729fb47.cfargotunnel.com
+spec:
+  rules:
+  - host: workshop20.odt-workshop.site
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: httpbin-service
+            port:
+              number: 80
