@@ -12,12 +12,7 @@ kubectl create secret generic cloudflare-api-key \
   --namespace=cloudflare
 ```
 
-```
-kubectl create secret generic cloudflare-api-key \
-  --from-literal=apiKey=0jdRjQU7INBDc3H4peYFdtXkYgub3GIyEgpkNlpD \
-  --from-literal=email=chaya.phw@gmail.com \
-  --namespace=cloudflare
-```
+
 
 install cloudflared
 ```
